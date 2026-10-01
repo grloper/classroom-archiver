@@ -48,8 +48,8 @@ export async function scrapeClassroom({
   if (courseFilterIds && courseFilterIds.length > 0) {
     const filterSet = new Set(courseFilterIds);
     const filtered = courses.filter((c) => filterSet.has(c.id));
-    if (filtered.length) courses = filtered;
-    else warn(`Selected courses not found in your account — archiving all courses instead.`);
+    courses = filtered;
+    if (!courses.length) warn('Selected courses not found in your account - nothing will be archived.');
   }
 
   const entities = { courses: [], topics: [], materials: [], attachments: [] };
