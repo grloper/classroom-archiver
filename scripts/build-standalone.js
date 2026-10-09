@@ -10,15 +10,15 @@ const stageDir = path.join(distDir, '.standalone-stage');
 
 const targets = {
   win32: {
-    output: 'classroom-downloader-win.exe',
+    output: 'classroom-archiver-win.exe',
     nodeBin: '{{caxa}}/node_modules/.bin/node.exe'
   },
   linux: {
-    output: 'classroom-downloader-linux',
+    output: 'classroom-archiver-linux',
     nodeBin: '{{caxa}}/node_modules/.bin/node'
   },
   darwin: {
-    output: 'classroom-downloader-mac',
+    output: 'classroom-archiver-mac',
     nodeBin: '{{caxa}}/node_modules/.bin/node'
   }
 };

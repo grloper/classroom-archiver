@@ -12,7 +12,7 @@ There are two ways to use it, depending on what you want to do.
 
 If someone sent you a `.zip` or `.json` archive, or a share link:
 
-1. Open the app: **`https://<owner>.github.io/classroom-downloader/`**
+1. Open the app: **`https://<owner>.github.io/classroom-archiver/`**
 2. Do any one of these:
    - **Drag the file** onto the “Open an archive” box (or click to browse).
    - Paste a **link to an archive** and press *Load*.
