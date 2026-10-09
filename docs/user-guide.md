@@ -6,9 +6,9 @@ This is the no-coding path for people who only want to download and archive thei
 
 Use the file for your computer:
 
-- Windows: `classroom-downloader-win.exe`
-- macOS: `classroom-downloader-mac`
-- Linux: `classroom-downloader-linux`
+- Windows: `classroom-archiver-win.exe`
+- macOS: `classroom-archiver-mac`
+- Linux: `classroom-archiver-linux`
 
 Put the file in its own empty folder, then run it. The app creates these folders next to the executable:
 

@@ -16,11 +16,11 @@ jobs:
       matrix:
         include:
           - os: windows-latest
-            artifact: classroom-downloader-win.exe
+            artifact: classroom-archiver-win.exe
           - os: ubuntu-latest
-            artifact: classroom-downloader-linux
+            artifact: classroom-archiver-linux
           - os: macos-latest
-            artifact: classroom-downloader-mac
+            artifact: classroom-archiver-mac
 
     steps:
       - name: Checkout repository
@@ -61,11 +61,11 @@ jobs:
       - name: Prepare assets for release
         run: |
           mkdir release-assets
-          mv artifacts/classroom-downloader-win.exe/classroom-downloader-win.exe release-assets/ || true
-          mv artifacts/classroom-downloader-linux/classroom-downloader-linux release-assets/ || true
-          mv artifacts/classroom-downloader-mac/classroom-downloader-mac release-assets/ || true
-          chmod +x release-assets/classroom-downloader-linux || true
-          chmod +x release-assets/classroom-downloader-mac || true
+          mv artifacts/classroom-archiver-win.exe/classroom-archiver-win.exe release-assets/ || true
+          mv artifacts/classroom-archiver-linux/classroom-archiver-linux release-assets/ || true
+          mv artifacts/classroom-archiver-mac/classroom-archiver-mac release-assets/ || true
+          chmod +x release-assets/classroom-archiver-linux || true
+          chmod +x release-assets/classroom-archiver-mac || true
 
       - name: Create Release
         uses: softprops/action-gh-release@v2

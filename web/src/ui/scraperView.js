@@ -184,7 +184,7 @@ function clientIdInput(session) {
     input,
     el('div', { class: 'small muted', style: { marginTop: '6px' } }, [
       'One-time setup — see the ',
-      el('a', { href: 'https://github.com/grloper/classroom-downloader/blob/main/docs/web-app-guide.md', target: '_blank', rel: 'noopener' }, 'setup guide'),
+      el('a', { href: 'https://github.com/grloper/classroom-archiver/blob/main/docs/web-app-guide.md', target: '_blank', rel: 'noopener' }, 'setup guide'),
       '. The Client ID is safe to paste; it is not a secret.'
     ])
   ]);
@@ -195,7 +195,7 @@ function setupNotice() {
     icon('info', { size: 18 }),
     el('div', {}, [
       'This app isn’t pre-configured with a Google Client ID. Create one for free (2 minutes) using the ',
-      el('a', { href: 'https://github.com/grloper/classroom-downloader/blob/main/docs/web-app-guide.md', target: '_blank', rel: 'noopener' }, 'web app guide'),
+      el('a', { href: 'https://github.com/grloper/classroom-archiver/blob/main/docs/web-app-guide.md', target: '_blank', rel: 'noopener' }, 'web app guide'),
       ', then paste it below. Or use the demo / open an existing archive with no setup at all.'
     ])
   ]);
