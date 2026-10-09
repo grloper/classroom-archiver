@@ -10,16 +10,16 @@ Crawl a whole classroom, package it into a single file, and share it with a link
 </p>
 
 <p>
-<a href="https://grloper.github.io/classroom-downloader-scraper/"><img src="https://img.shields.io/badge/%E2%96%B6_Live_Demo-Open_the_app-4f46e5?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Demo"></a>
+<a href="https://grloper.github.io/classroom-archiver/"><img src="https://img.shields.io/badge/%E2%96%B6_Live_Demo-Open_the_app-4f46e5?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Demo"></a>
 &nbsp;
 <a href="docs/web-app-guide.md"><img src="https://img.shields.io/badge/%F0%9F%93%98_Read_the-Guide-1f2937?style=for-the-badge" alt="Guide"></a>
 </p>
 
 <p>
-<a href="https://github.com/grloper/classroom-downloader/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/grloper/classroom-downloader/ci.yml?branch=main&style=flat-square&logo=githubactions&logoColor=white&label=CI" alt="CI"></a>
-<a href="https://github.com/grloper/classroom-downloader/actions/workflows/pages.yml"><img src="https://img.shields.io/github/actions/workflow/status/grloper/classroom-downloader/pages.yml?branch=main&style=flat-square&logo=github&label=deploy" alt="Deploy"></a>
-<a href="LICENSE"><img src="https://img.shields.io/github/license/grloper/classroom-downloader?style=flat-square&color=4f46e5" alt="License"></a>
-<a href="https://github.com/grloper/classroom-downloader/stargazers"><img src="https://img.shields.io/github/stars/grloper/classroom-downloader?style=flat-square&logo=github&color=4f46e5" alt="Stars"></a>
+<a href="https://github.com/grloper/classroom-archiver/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/grloper/classroom-archiver/ci.yml?branch=main&style=flat-square&logo=githubactions&logoColor=white&label=CI" alt="CI"></a>
+<a href="https://github.com/grloper/classroom-archiver/actions/workflows/pages.yml"><img src="https://img.shields.io/github/actions/workflow/status/grloper/classroom-archiver/pages.yml?branch=main&style=flat-square&logo=github&label=deploy" alt="Deploy"></a>
+<a href="LICENSE"><img src="https://img.shields.io/github/license/grloper/classroom-archiver?style=flat-square&color=4f46e5" alt="License"></a>
+<a href="https://github.com/grloper/classroom-archiver/stargazers"><img src="https://img.shields.io/github/stars/grloper/classroom-archiver?style=flat-square&logo=github&color=4f46e5" alt="Stars"></a>
 <img src="https://img.shields.io/badge/web_app-zero_dependencies-16a34a?style=flat-square" alt="Zero dependencies">
 <img src="https://img.shields.io/badge/data-100%25_local-16a34a?style=flat-square" alt="100% local">
 
@@ -27,7 +27,7 @@ Crawl a whole classroom, package it into a single file, and share it with a link
 
 <p><sub>Created &amp; maintained by <a href="https://github.com/grloper"><b>@grloper</b></a></sub></p>
 
-<sub><a href="https://grloper.github.io/classroom-downloader-scraper/">Live&nbsp;Demo</a> · <a href="docs/web-app-guide.md">User&nbsp;Guide</a> · <a href="docs/refactor-strategy.md">Architecture</a> · <a href="https://github.com/grloper/classroom-downloader/issues/new">Report&nbsp;Bug</a> · <a href="https://github.com/grloper/classroom-downloader/issues/new">Request&nbsp;Feature</a> · <a href="https://github.com/grloper">@grloper</a></sub>
+<sub><a href="https://grloper.github.io/classroom-archiver/">Live&nbsp;Demo</a> · <a href="docs/web-app-guide.md">User&nbsp;Guide</a> · <a href="docs/refactor-strategy.md">Architecture</a> · <a href="https://github.com/grloper/classroom-archiver/issues/new">Report&nbsp;Bug</a> · <a href="https://github.com/grloper/classroom-archiver/issues/new">Request&nbsp;Feature</a> · <a href="https://github.com/grloper">@grloper</a></sub>
 
 </div>
 
@@ -59,7 +59,7 @@ Google Classroom is where your coursework lives — until the term ends, access 
 
 ## 🚀 Quick start
 
-**Just want to look around?** → **[Open the live demo](https://grloper.github.io/classroom-downloader-scraper//)** and click **"View live demo."** That's it.
+**Just want to look around?** → **[Open the live demo](https://grloper.github.io/classroom-archiver/)** and click **"View live demo."** That's it.
 
 **Archive your own Classroom** (in the browser):
 
@@ -70,8 +70,8 @@ Google Classroom is where your coursework lives — until the term ends, access 
 **Run the app locally** (optional — no dependencies needed):
 
 ```bash
-git clone https://github.com/grloper/classroom-downloader.git
-cd classroom-downloader
+git clone https://github.com/grloper/classroom-archiver.git
+cd classroom-archiver
 npm run web        # → http://127.0.0.1:8080
 ```
 
@@ -102,11 +102,11 @@ Both paths are read-only against Google and produce the **same portable archive*
 
 | | 🌐 **Web App** | 🖥️ **Local Engine** |
 |---|---|---|
-| **Install** | None — runs in your browser | Node.js, or a packaged executable |
+| **Install** | None — runs in your browser | Node.js, or a locally built executable |
 | **Sign-in** | One click (Google Identity Services) | Desktop OAuth client + JSON upload |
 | **Best for** | Browsing, backing up, and **sharing** | Large downloads, automation, scripting |
 | **Output** | `master_index.json` graph · `.zip` export | Same `master_index.json` graph · SQLite |
-| **Lives in** | [`web/`](web/) → GitHub Pages | [`src/`](src/) → `npm run engine` or a release binary |
+| **Lives in** | [`web/`](web/) → GitHub Pages | [`src/`](src/) → `npm run engine` or a locally built standalone binary |
 
 ## 🔒 Privacy
 
@@ -146,9 +146,7 @@ An API-first crawler with a Playwright session fallback. It discovers accessible
 courses, crawls topics/coursework/materials/announcements, downloads Drive assets
 where permitted, writes SQLite metadata, and exports `output/master_index.json`.
 
-**Standalone executables** (no Node.js required) are published on every tagged
-release — download from [Releases](https://github.com/grloper/classroom-downloader/releases),
-drop the file in an empty folder, and run it. See the [CLI user guide](docs/user-guide.md).
+**Run it from a clone** (Node.js required): see "From source" below. Standalone executables can be built locally with `npm run build:standalone`; no prebuilt releases are published yet. See the [CLI user guide](docs/user-guide.md).
 
 **From source:**
 
@@ -209,7 +207,7 @@ npm test            # unit tests (dependency-free for the web modules)
 npm run check       # syntax-check engine + web app
 ```
 
-Found a bug or have an idea? [Open an issue](https://github.com/grloper/classroom-downloader/issues/new) or send a PR.
+Found a bug or have an idea? [Open an issue](https://github.com/grloper/classroom-archiver/issues/new) or send a PR.
 
 ## 🛠️ Built with
 
@@ -225,8 +223,8 @@ Found a bug or have an idea? [Open an issue](https://github.com/grloper/classroo
 
 If Classroom Archiver is useful to you, consider giving it a star — it genuinely helps.
 
-<a href="https://star-history.com/#grloper/classroom-downloader&Date">
-  <img src="https://api.star-history.com/svg?repos=grloper/classroom-downloader&type=Date" alt="Star History Chart" width="640">
+<a href="https://star-history.com/#grloper/classroom-archiver&Date">
+  <img src="https://api.star-history.com/svg?repos=grloper/classroom-archiver&type=Date" alt="Star History Chart" width="640">
 </a>
 
 ## 👤 Author
@@ -235,7 +233,7 @@ Built and maintained by **[@grloper](https://github.com/grloper)**.
 
 <a href="https://github.com/grloper"><img src="https://img.shields.io/github/followers/grloper?label=Follow%20%40grloper&style=social" alt="Follow @grloper on GitHub"></a>
 
-Questions, ideas, or want to contribute? [Open an issue](https://github.com/grloper/classroom-downloader/issues/new) or reach me on GitHub at **[github.com/grloper](https://github.com/grloper)**.
+Questions, ideas, or want to contribute? [Open an issue](https://github.com/grloper/classroom-archiver/issues/new) or reach me on GitHub at **[github.com/grloper](https://github.com/grloper)**.
 
 ## 📄 License
 
